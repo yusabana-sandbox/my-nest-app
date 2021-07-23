@@ -13,7 +13,7 @@ export class CatsController {
 
   @Get()
   findAll(): string {
-    return 'Strings'
+    return 'Strings22'
   }
 
   @Get(':id')
