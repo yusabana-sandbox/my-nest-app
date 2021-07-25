@@ -1,0 +1,19 @@
+version: '3'
+
+volumes:
+  mysql:
+    driver: local
+
+services:
+  mysql:
+    image: mysql:8.0.21
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - ${LOCAL_MYSQL_BIND_PORT:-3306}:3306
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+    cap_add:
+      - SYS_NICE
+
