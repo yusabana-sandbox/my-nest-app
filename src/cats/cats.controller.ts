@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common'
+import { Body, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common'
+import { LoggingInterceptor } from 'src/interceptors/loggiing.interceptor'
 import { ValidationPipe } from 'src/validations/validation.pipe'
 import { CatsService } from './cats.service'
 import { CreateCatDto } from './dto/create-cat.dto'
@@ -13,6 +14,7 @@ export class CatsController {
   }
 
   @Get()
+  @UseInterceptors(LoggingInterceptor)
   findAll(): string {
     return 'Strings22'
   }
