@@ -10,6 +10,7 @@ export class LoggingInterceptor implements NestInterceptor {
     return next.handle().pipe(
       map((data) => {
         console.log(`After...  in interceptor ${Date.now() - now}ms`)
+        // jsonにして返している
         return { data }
       })
     )

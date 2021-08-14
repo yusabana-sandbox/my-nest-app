@@ -1,6 +1,9 @@
 import { Body, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common'
-import { LoggingInterceptor } from 'src/interceptors/loggiing.interceptor'
-import { ValidationPipe } from 'src/validations/validation.pipe'
+// full-pathでアクセスできるようにしたい
+// import { LoggingInterceptor } from 'src/interceptors/loggiing.interceptor'
+// import { ValidationPipe } from 'src/validations/validation.pipe'
+import { LoggingInterceptor } from '../interceptors/loggiing.interceptor'
+import { ValidationPipe } from '../validations/validation.pipe'
 import { CatsService } from './cats.service'
 import { CreateCatDto } from './dto/create-cat.dto'
 
