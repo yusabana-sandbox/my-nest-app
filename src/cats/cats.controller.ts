@@ -1,11 +1,12 @@
 import { Body, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common'
-// full-pathでアクセスできるようにしたい
+// full-pathでアクセスできるようにしたい testとかで動かない webpackの設定が必要
 // import { LoggingInterceptor } from 'src/interceptors/loggiing.interceptor'
 // import { ValidationPipe } from 'src/validations/validation.pipe'
 import { LoggingInterceptor } from '../interceptors/loggiing.interceptor'
 import { ValidationPipe } from '../validations/validation.pipe'
 import { CatsService } from './cats.service'
 import { CreateCatDto } from './dto/create-cat.dto'
+import { Cat } from './interfaces/cat.interface'
 
 @Controller('cats')
 export class CatsController {
@@ -18,8 +19,9 @@ export class CatsController {
 
   @Get()
   @UseInterceptors(LoggingInterceptor)
-  findAll(): string {
-    return 'Strings22'
+  findAll(): Cat[] {
+    // return 'Strings22'
+    return this.catsService.findAll()
   }
 
   @Get(':id')
